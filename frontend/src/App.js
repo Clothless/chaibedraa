@@ -1,6 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import About from './components/About';
+import Projects from './components/Projects';
+import Blog from './components/Blog';
+import Contact from './components/Contact';
 import './App.css';
 
 function App() {
@@ -29,6 +32,24 @@ function App() {
                   >
                     About
                   </Link>
+                  <Link
+                    to="/projects"
+                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  >
+                    Projects
+                  </Link>
+                  <Link
+                    to="/blog"
+                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  >
+                    Blog
+                  </Link>
+                  <Link
+                    to="/contact"
+                    className="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium"
+                  >
+                    Contact
+                  </Link>
                 </div>
               </div>
             </div>
@@ -44,12 +65,15 @@ function App() {
                     Welcome to My Personal Website
                   </h1>
                   <p className="text-xl text-gray-600">
-                    This is a work in progress...
+                    Software Engineer & Problem Solver
                   </p>
                 </div>
               </div>
             } />
             <Route path="/about" element={<About />} />
+            <Route path="/projects" element={<Projects />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/contact" element={<Contact />} />
           </Routes>
         </main>
       </div>
