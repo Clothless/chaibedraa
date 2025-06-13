@@ -1,22 +1,36 @@
 # Dependencies
 node_modules/
-vendor/
+/frontend/node_modules
+/frontend/.pnp
+/frontend/.pnp.js
 
-# Environment files
-.env
-.env.local
-.env.*.local
+# Testing
+/frontend/coverage
 
-# Build outputs
-dist/
-build/
+# Production
+/frontend/build
+/frontend/dist
+
+# Go
+/backend/vendor/
 *.exe
 *.exe~
 *.dll
 *.so
 *.dylib
+*.test
+*.out
+go.work
 
-# IDE and editor files
+# Environment variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+/backend/.env
+
+# IDE
 .idea/
 .vscode/
 *.swp
@@ -24,14 +38,15 @@ build/
 .DS_Store
 
 # Logs
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+*.log
 
-# Testing
-coverage/
+# Docker
+.docker/
+docker-compose.override.yml
 
-# Temporary files
-*.tmp
-*.temp 
+# Database
+*.sqlite
+*.db 
