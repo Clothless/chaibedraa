@@ -22,13 +22,25 @@ node_modules/
 *.out
 go.work
 
-# Environment variables
-.env
+# Go workspace
+bin/
+pkg/
+
+# Node
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-debug.log*
 .env.local
 .env.development.local
 .env.test.local
 .env.production.local
-/backend/.env
+
+# React build
+frontend/build/
+frontend/dist/
+frontend/.next/
+frontend/out/
 
 # IDE
 .idea/
@@ -37,16 +49,32 @@ go.work
 *.swo
 .DS_Store
 
-# Logs
-npm-debug.log*
-yarn-debug.log*
-yarn-error.log*
-*.log
+# Environment variables
+.env
+.env.*
+!.env.example
 
 # Docker
 .docker/
 docker-compose.override.yml
 
 # Database
+*.db
 *.sqlite
-*.db 
+postgres_data/
+
+# Logs
+*.log
+logs/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Testing
+coverage/
+.nyc_output/
+
+# Temporary files
+*.tmp
+*.temp
+.cache/ 

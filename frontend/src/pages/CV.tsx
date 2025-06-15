@@ -6,8 +6,9 @@ const CV: React.FC = () => {
       <div className="flex justify-between items-center mb-8">
         <h1 className="text-4xl font-bold">Curriculum Vitae</h1>
         <a
-          href="/cv.pdf"
-          download
+          href="https://docs.google.com/document/d/1sUn6qFXtRKFeADleLpdHM28mUkJiluBHfb0moIddfkY/edit?usp=sharing"
+          target="_blank"
+          rel="noopener noreferrer"
           className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 flex items-center"
         >
           <svg

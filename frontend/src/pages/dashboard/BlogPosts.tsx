@@ -89,13 +89,21 @@ const BlogPosts: React.FC = () => {
   }
 
   if (showForm || editingPost) {
+    const formDataForForm = editingPost ? {
+      title: editingPost.title,
+      content: editingPost.content,
+      slug: editingPost.slug,
+      tags: editingPost.tags,
+      published: editingPost.published,
+    } : undefined;
+
     return (
       <div>
         <h1 className="text-2xl font-bold text-gray-800 mb-6">
           {editingPost ? 'Edit Blog Post' : 'Create Blog Post'}
         </h1>
         <BlogPostForm
-          initialData={editingPost || undefined}
+          initialData={formDataForForm}
           onSubmit={editingPost ? handleUpdatePost : handleCreatePost}
           onCancel={() => {
             setShowForm(false);

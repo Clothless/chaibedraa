@@ -109,7 +109,7 @@ const Contact: React.FC = () => {
           <h2 className="text-lg font-semibold mb-4">Other Ways to Connect</h2>
           <div className="space-y-2">
             <a
-              href="https://github.com/yourusername"
+              href="https://github.com/Clothless"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-gray-600 hover:text-gray-900"
@@ -129,7 +129,7 @@ const Contact: React.FC = () => {
               GitHub
             </a>
             <a
-              href="https://linkedin.com/in/yourusername"
+              href="https://www.linkedin.com/in/ibrahim-chaibedraa/"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center text-gray-600 hover:text-gray-900"

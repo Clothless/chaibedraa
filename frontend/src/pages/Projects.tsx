@@ -21,7 +21,7 @@ const Projects: React.FC = () => {
     const fetchProjects = async () => {
       try {
         const response = await axios.get<Project[]>(`${process.env.REACT_APP_API_URL}/api/projects`);
-        setProjects(response.data);
+        setProjects(response.data || []);
         setLoading(false);
       } catch (err) {
         setError('Failed to fetch projects');
@@ -44,6 +44,16 @@ const Projects: React.FC = () => {
     return (
       <div className="text-center py-12">
         <h2 className="text-2xl font-bold text-red-600">{error}</h2>
+        <p className="text-gray-600">Please ensure your backend is running and has project data.</p>
+      </div>
+    );
+  }
+
+  if (projects.length === 0) {
+    return (
+      <div className="text-center py-12">
+        <h2 className="text-2xl font-bold text-gray-800">No projects found.</h2>
+        <p className="text-gray-600">Please add projects to your database via the backend API or admin dashboard.</p>
       </div>
     );
   }
@@ -60,7 +70,7 @@ const Projects: React.FC = () => {
               <div className="mb-4">
                 <h3 className="text-sm font-semibold text-gray-700 mb-2">Tech Stack:</h3>
                 <div className="flex flex-wrap gap-2">
-                  {project.tech_stack.map((tech, index) => (
+                  {(project.tech_stack || []).map((tech, index) => (
                     <span
                       key={index}
                       className="bg-blue-100 text-blue-800 text-xs px-2 py-1 rounded"

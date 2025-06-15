@@ -1,0 +1,4 @@
+DROP TABLE IF EXISTS blog_post_images;
+DROP TABLE IF EXISTS blog_posts;
+DROP TABLE IF EXISTS projects;
+DROP TABLE IF EXISTS users; 

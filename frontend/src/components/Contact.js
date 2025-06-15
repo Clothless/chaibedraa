@@ -8,10 +8,49 @@ const Contact = () => {
     message: ''
   });
 
-  const handleSubmit = (e) => {
+  const [status, setStatus] = useState({
+    loading: false,
+    error: null,
+    success: false
+  });
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    // TODO: Implement form submission
-    console.log('Form submitted:', formData);
+    setStatus({ loading: true, error: null, success: false });
+
+    try {
+      console.log('Sending request with data:', formData);
+      const response = await fetch('http://localhost:8080/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify(formData),
+      });
+
+      console.log('Response status:', response.status);
+      const responseText = await response.text();
+      console.log('Response text:', responseText);
+
+      if (!response.ok) {
+        let errorMessage;
+        try {
+          const errorData = JSON.parse(responseText);
+          errorMessage = errorData.message || 'Failed to send message';
+        } catch {
+          errorMessage = responseText || 'Failed to send message';
+        }
+        throw new Error(errorMessage);
+      }
+
+      setStatus({ loading: false, error: null, success: true });
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      setStatus({ loading: false, error: error.message, success: false });
+    }
   };
 
   const handleChange = (e) => {
@@ -35,6 +74,16 @@ const Contact = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {/* Contact Form */}
               <div>
+                {status.success && (
+                  <div className="mb-4 p-4 bg-green-100 text-green-700 rounded-md">
+                    Thank you for your message! I'll get back to you soon.
+                  </div>
+                )}
+                {status.error && (
+                  <div className="mb-4 p-4 bg-red-100 text-red-700 rounded-md">
+                    {status.error}
+                  </div>
+                )}
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <label htmlFor="name" className="block text-sm font-medium text-gray-700">
@@ -98,9 +147,14 @@ const Contact = () => {
 
                   <button
                     type="submit"
-                    className="w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+                    disabled={status.loading}
+                    className={`w-full flex justify-center py-2 px-4 border border-transparent rounded-md shadow-sm text-sm font-medium text-white ${
+                      status.loading
+                        ? 'bg-blue-400 cursor-not-allowed'
+                        : 'bg-blue-600 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500'
+                    }`}
                   >
-                    Send Message
+                    {status.loading ? 'Sending...' : 'Send Message'}
                   </button>
                 </form>
               </div>

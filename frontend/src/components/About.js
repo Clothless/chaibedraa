@@ -23,6 +23,7 @@ const About = () => {
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">About Me</h2>
               <p className="text-gray-600">
+                {/* Please update this section with a professional summary from your CV */}
                 I'm a passionate software engineer with expertise in Python and Dart development. 
                 I specialize in building robust applications using Flutter for mobile development 
                 and have extensive experience with various technologies including Firebase, Docker, 
@@ -39,6 +40,7 @@ const About = () => {
                     <li>Python</li>
                     <li>Dart</li>
                     <li>JavaScript</li>
+                    {/* Add more programming languages from your CV */}
                   </ul>
                 </div>
                 <div>
@@ -49,10 +51,51 @@ const About = () => {
                     <li>Docker</li>
                     <li>Kubernetes</li>
                     <li>REST APIs</li>
+                    {/* Add more technologies from your CV */}
                   </ul>
                 </div>
               </div>
             </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Work Experience</h2>
+              {/* Please update this section with your work experience from your CV */}
+              <div className="bg-white p-6 rounded-lg shadow-sm mb-4">
+                <h3 className="text-xl font-semibold mb-2">[Your Job Title]</h3>
+                <p className="text-gray-600 mb-2">[Company Name] • [Start Date] - [End Date]</p>
+                <ul className="list-disc list-inside text-gray-600 space-y-1">
+                  <li>[Key responsibility or achievement 1]</li>
+                  <li>[Key responsibility or achievement 2]</li>
+                  <li>[Key responsibility or achievement 3]</li>
+                  {/* Add more responsibilities/achievements */}
+                </ul>
+              </div>
+              {/* Duplicate the above div for additional work experiences */}
+
+            </section>
+
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Education</h2>
+              {/* Please update this section with your education details from your CV */}
+              <div className="bg-white p-6 rounded-lg shadow-sm">
+                <h3 className="text-xl font-semibold mb-2">[Your Degree, Major]</h3>
+                <p className="text-gray-600">[University Name] • [Start Year] - [End Year]</p>
+                <p className="text-gray-600 mt-2">
+                  Relevant coursework: [List relevant courses from your CV]
+                </p>
+              </div>
+            </section>
+
+            {/* Add a Certifications section if applicable, similar to Work Experience or Education */}
+            {/*
+            <section>
+              <h2 className="text-2xl font-semibold text-gray-900 mb-4">Certifications</h2>
+              <ul className="list-disc list-inside text-gray-600">
+                <li>[Certification Name 1]</li>
+                <li>[Certification Name 2]</li>
+              </ul>
+            </section>
+            */}
 
             <section>
               <h2 className="text-2xl font-semibold text-gray-900 mb-4">Connect With Me</h2>
